@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.form-container {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #455A64;
+
+}
+
+.header {
+  /*width: 80%;*/
+  margin-top: 0;
+  color: #FFFFFF;
+  font-size: 100px;
+  text-align: center;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-image: url('assets/linked-list-logo (1).svg');
+  background-repeat: no-repeat;
+}
+
+.user-input {
+  display: block;
+  width: 80%;
+  height: 40px;
+  padding-left: 10px;
+  margin: 10px auto;
+  font-family: inherit;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.enter-btn {
+  width: 80%;
+  height: 40px;
+  display: block;
+  margin: 10px auto;
+  border: none;
+  background-color: #FFC107;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.enter-btn:hover {
+  background-color: #FFD773;
+  color: #FFFFFF;
+}
+
+.bookmark-container {
+  width: 50%;
+  background-color: #CFD8DC;
+}
+
+.bookmark-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookmark {
+  width: 90%;
+  margin-top: 20px;
+  border: 3px solid #607D8B;
+  background-color: #FFFFFF;
+}
+
+.content {
+  padding: 20px;
+}
+
+.title {
+  margin-top: 10px;
+  padding-bottom: 20px;
+  color: #455A64;
+  border-bottom: 2px solid #CFD8DC;
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.link {
+  display: block;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  color: #607D8B;
+  font-size: 20px;
+  border-bottom: 2px solid #CFD8DC;
+  text-decoration-color: #F2F4F4;
+}
+
+.link:hover,
+.read-btn:hover,
+.delete-btn:hover {
+  color: #455A64;
+  text-decoration-color: #FFC107;
+}
+
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.read-btn,
+.delete-btn {
+  border: none;
+  background: none;
+  color: #455A64;
+  text-decoration: underline;
+  text-decoration-color: #F2F4F4;
+}
