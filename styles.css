@@ -19,27 +19,39 @@ body {
 }
 
 .header {
-  /*width: 80%;*/
+  display: flex;
+  justify-content: center;
+}
+
+#linked,
+#list {
+  display: inline-block;
   margin-top: 0;
   color: #FFFFFF;
-  font-size: 100px;
-  text-align: center;
+  font-size: 70px;
+  letter-spacing: 2px;
+}
+
+#linked {
+  margin-right: 10px;
+}
+
+#list {
+  margin-left: 10px;
 }
 
 .icon {
   width: 100px;
   height: 100px;
-  display: inline-block;
-  background-image: url('assets/linked-list-logo (1).svg');
-  background-repeat: no-repeat;
+  padding-bottom: 15px;
 }
 
 .user-input {
   display: block;
   width: 80%;
   height: 40px;
-  padding-left: 10px;
   margin: 10px auto;
+  padding-left: 10px;
   font-family: inherit;
   font-size: 25px;
   font-weight: 400;
@@ -93,15 +105,17 @@ body {
   border-bottom: 2px solid #CFD8DC;
   font-size: 35px;
   font-weight: 800;
+  letter-spacing: 1px;
 }
 
 .link {
   display: block;
-  padding-bottom: 20px;
   margin-bottom: 20px;
-  color: #607D8B;
-  font-size: 20px;
+  padding-bottom: 20px;
   border-bottom: 2px solid #CFD8DC;
+  color: #607D8B;
+  font-size: 22px;
+  letter-spacing: 1px;
   text-decoration-color: #F2F4F4;
 }
 
@@ -123,6 +137,7 @@ body {
   border: none;
   background: none;
   color: #455A64;
+  font-size: 18px;
   text-decoration: underline;
   text-decoration-color: #F2F4F4;
 }
