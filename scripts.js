@@ -1,5 +1,5 @@
 var $enterBtn = $('.enter-btn');
-var $readBtn = $('.read-btn');
+
 var $deleteBtn = $('.delete-btn');
 var $bookmarkLibrary = $('.bookmark-container');
 
@@ -36,3 +36,8 @@ function prependBookmark() {
     </article>`
   )
 }
+
+$readBtn.on('click', function() {
+  var $readBtn = $('.read-btn');
+
+})
