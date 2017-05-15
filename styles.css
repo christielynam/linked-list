@@ -117,6 +117,7 @@ body {
   font-size: 22px;
   letter-spacing: 1px;
   text-decoration-color: #F2F4F4;
+  text-underline-position: under;
 }
 
 .link:hover,
@@ -124,6 +125,7 @@ body {
 .delete-btn:hover {
   color: #455A64;
   text-decoration-color: #FFC107;
+  text-underline-position: under;
 }
 
 
@@ -140,4 +142,5 @@ body {
   font-size: 18px;
   text-decoration: underline;
   text-decoration-color: #F2F4F4;
+  text-underline-position: under;
 }
