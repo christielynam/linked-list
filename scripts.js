@@ -1,5 +1,5 @@
 var $enterBtn = $('.enter-btn');
-var $readBtn = $('.read-btn');
+
 var $deleteBtn = $('.delete-btn');
 var $bookmarkLibrary = $('.bookmark-container');
 
@@ -36,3 +36,28 @@ function prependBookmark() {
     </article>`
   )
 }
+
+// $readBtn.on('click', function() {
+//   var $readBtn = $('.read-btn');
+//
+// })
+
+function toggleEnterDisable() {
+  var $title = $('#website-title').val();
+  var $url = $('#website-url').val();
+
+  if (($title.length === 0) || ($url.length === 0)) {
+    $enterBtn.prop('disabled', true);
+    console.log('Disabled');
+  } else {
+    $enterBtn.prop('disabled', false);
+}
+}
+
+
+$('#website-title').on('input', function() {
+  toggleEnterDisable();
+})
+$('#website-url').on('input', function() {
+  toggleEnterDisable();
+})
