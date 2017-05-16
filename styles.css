@@ -138,11 +138,9 @@ body {
 .delete-btn:hover {
   color: #455A64;
   text-decoration-color: #FFC107;
-  text-underline-position: under;
 }
 
 .read .link {
-  text-decoration: none;
   text-decoration-color: #CFD8DC;
 }
 
@@ -161,11 +159,12 @@ body {
   outline: none;
   text-decoration: underline;
   text-decoration-color: #F2F4F4;
-  text-underline-position: under;
 }
 
 .read .read-btn {
   color: #F05A28;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 p {
