@@ -7,13 +7,25 @@ $(window).on('load', function() {
 
 var $enterBtn = $('.enter-btn');
 var $deleteBtn = $('.delete-btn');
+var totalCounter = 0;
+var readCounter = 0;
+var unreadCounter = 0;
 
+
+function countBookmarks(){
+  totalCounter = readCounter + unreadCounter;
+  $('.total-count').text(totalCounter);
+  $('.read-count').text(readCounter);
+  $('.unread-count').text(unreadCounter);
+}
 
 
 $enterBtn.on('click', function() {
   prependBookmark();
   clearInput();
   toggleEnterDisable();
+  unreadCounter++
+  countBookmarks();
   })
 
 //Constructor function in prepend() if needed
@@ -77,4 +89,9 @@ function clearInput() {
 $('.bookmark-container').on('click', '.delete-btn', function() {
   $(this).parents('.bookmark').remove();
   $('#website-title').focus();
+  if(readCounter > 0) {
+    readCounter = readCounter - 1;
+  }
+  unreadCounter = unreadCounter - 1;
+  countBookmarks();
 })
