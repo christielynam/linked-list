@@ -89,9 +89,10 @@ function clearInput() {
 $('.bookmark-container').on('click', '.delete-btn', function() {
   $(this).parents('.bookmark').remove();
   $('#website-title').focus();
+
   if(readCounter > 0) {
     readCounter = readCounter - 1;
   }
   unreadCounter = unreadCounter - 1;
   countBookmarks();
-})
+});
