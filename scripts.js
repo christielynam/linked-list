@@ -1,3 +1,6 @@
+$(window).on('load', function() {
+  $('#website-title').focus();
+})
 
 
 
