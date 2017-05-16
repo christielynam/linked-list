@@ -1,3 +1,4 @@
+var input = $('#website-url');
 var totalCounter = 0;
 var readCounter = 0;
 var unreadCounter = 0;
@@ -12,14 +13,13 @@ $('#website-title').on('input', function() {
 
 $('#website-url').on('input', function() {
   toggleEnterDisable();
+  amendURL();
 })
 
 $('.enter-btn').on('click', function() {
-  prependBookmark();
+  validateURL();
   clearInput();
   toggleEnterDisable();
-  unreadCounter++
-  countBookmarks();
 })
 
 $('.bookmark-container').on('click', '.read-btn', function() {
@@ -38,6 +38,23 @@ $('.bookmark-container').on('click', '.delete-btn', function() {
   countBookmarks();
 });
 
+function amendURL() {
+    if (input.val().substring(0,4)=='www.') {
+      input.val('http://www.'+input.val().substring(4));
+    }
+}
+
+function validateURL() {
+  var input=$('#website-url').val();
+
+  if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(input)) {
+   prependBookmark();
+   unreadCounter++
+   countBookmarks();
+  } else {
+  alert("invalid URL");
+  }
+}
 
 function prependBookmark() {
   var $bookmarkLibrary = $('.bookmark-container');
