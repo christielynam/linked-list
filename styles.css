@@ -150,3 +150,14 @@ body {
   text-decoration-color: #F2F4F4;
   text-underline-position: under;
 }
+
+p {
+  color: #CFD8DC;
+  display: flex;
+  align-self: center;
+}
+
+.read-count,
+.unread-count {
+  display: inline-flex;
+}
