@@ -1,14 +1,17 @@
-var $enterBtn = $('.enter-btn');
 
+
+
+
+var $enterBtn = $('.enter-btn');
 var $deleteBtn = $('.delete-btn');
-var $bookmarkLibrary = $('.bookmark-container');
 
 
 
 $enterBtn.on('click', function() {
   prependBookmark();
-  console.log('button working')
-})
+  clearInput();
+  toggleEnterDisable();
+  })
 
 //Constructor function in prepend() if needed
 // function Bookmark(title, url) {
@@ -20,6 +23,7 @@ $enterBtn.on('click', function() {
 
 function prependBookmark() {
 
+  var $bookmarkLibrary = $('.bookmark-container');
   var $title = $('#website-title').val();
   var $url = $('#website-url').val();
 
@@ -48,10 +52,9 @@ function toggleEnterDisable() {
 
   if (($title.length === 0) || ($url.length === 0)) {
     $enterBtn.prop('disabled', true);
-    console.log('Disabled');
   } else {
     $enterBtn.prop('disabled', false);
-}
+  }
 }
 
 
@@ -61,3 +64,9 @@ $('#website-title').on('input', function() {
 $('#website-url').on('input', function() {
   toggleEnterDisable();
 })
+
+function clearInput() {
+  $('#website-title').val('');
+  $('#website-url').val('');
+  $('#website-title').focus();
+}
