@@ -50,7 +50,7 @@ body {
   display: block;
   width: 80%;
   height: 40px;
-  margin: 10px auto;
+  margin: 25px auto;
   padding-left: 10px;
   font-family: inherit;
   font-size: 25px;
@@ -61,7 +61,7 @@ body {
   width: 80%;
   height: 40px;
   display: block;
-  margin: 10px auto;
+  margin: 25px auto;
   border: none;
   background-color: #FFC107;
   color: #FFFFFF;
@@ -94,6 +94,10 @@ body {
   background-color: #FFFFFF;
 }
 
+.read {
+  background-color: #F2F4F4;
+}
+
 .content {
   padding: 20px;
 }
@@ -106,6 +110,9 @@ body {
   font-size: 35px;
   font-weight: 800;
   letter-spacing: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .link {
@@ -116,7 +123,10 @@ body {
   color: #607D8B;
   font-size: 22px;
   letter-spacing: 1px;
+  overflow: hidden;
   text-decoration-color: #F2F4F4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .link:hover,
@@ -124,6 +134,11 @@ body {
 .delete-btn:hover {
   color: #455A64;
   text-decoration-color: #FFC107;
+  text-underline-position: under;
+}
+
+.read .link {
+  text-decoration-color: #CFD8DC;
 }
 
 
@@ -138,8 +153,25 @@ body {
   background: none;
   color: #455A64;
   font-size: 18px;
+  outline: none;
   text-decoration: underline;
   text-decoration-color: #F2F4F4;
+  text-underline-position: under;
+}
+
+.read .read-btn {
+  color: #F05A28;
+}
+
+p {
+  color: #CFD8DC;
+  display: flex;
+  align-self: center;
+}
+
+.read-count,
+.unread-count {
+  display: inline-flex;
 }
 
 @media screen
