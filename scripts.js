@@ -43,7 +43,7 @@ function prependBookmark() {
   var $url = $('#website-url').val();
 
   $bookmarkLibrary.prepend(
-    `<article class="bookmark read">
+    `<article class="bookmark">
       <div class="content">
         <h2 class="title">${$title}</h2>
         <a class="link" href="${$url}">${$url}</a>
@@ -56,10 +56,12 @@ function prependBookmark() {
   )
 }
 
-// $readBtn.on('click', function() {
-//   var $readBtn = $('.read-btn');
-//
-// })
+$('.bookmark-container').on('click', '.read-btn', function() {
+  $('article').toggleClass('read');
+  console.log('pressing');
+
+
+})
 
 function toggleEnterDisable() {
   var $title = $('#website-title').val();
