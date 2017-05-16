@@ -110,6 +110,9 @@ body {
   font-size: 35px;
   font-weight: 800;
   letter-spacing: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .link {
@@ -120,7 +123,10 @@ body {
   color: #607D8B;
   font-size: 22px;
   letter-spacing: 1px;
+  overflow: hidden;
   text-decoration-color: #F2F4F4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .link:hover,
