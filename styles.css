@@ -94,6 +94,10 @@ body {
   background-color: #FFFFFF;
 }
 
+.read {
+  background-color: #F2F4F4;
+}
+
 .content {
   padding: 20px;
 }
@@ -133,6 +137,10 @@ body {
   text-underline-position: under;
 }
 
+.read .link {
+  text-decoration-color: #CFD8DC;
+}
+
 
 .btn-container {
   display: flex;
@@ -149,6 +157,10 @@ body {
   text-decoration: underline;
   text-decoration-color: #F2F4F4;
   text-underline-position: under;
+}
+
+.read .read-btn {
+  color: #F05A28;
 }
 
 p {
