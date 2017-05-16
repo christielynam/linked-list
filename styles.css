@@ -140,6 +140,7 @@ body {
   background: none;
   color: #455A64;
   font-size: 18px;
+  outline: none;
   text-decoration: underline;
   text-decoration-color: #F2F4F4;
   text-underline-position: under;
