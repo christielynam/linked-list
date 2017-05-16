@@ -70,3 +70,8 @@ function clearInput() {
   $('#website-url').val('');
   $('#website-title').focus();
 }
+
+$('.bookmark-container').on('click', '.delete-btn', function() {
+  $(this).parents('.bookmark').remove();
+  $('#website-title').focus();
+})
