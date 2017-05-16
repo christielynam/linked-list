@@ -76,6 +76,10 @@ body {
   color: #FFFFFF;
 }
 
+.enter-btn:disabled {
+  background-color: #CFD8DC;
+}
+
 .bookmark-container {
   width: 50%;
   background-color: #CFD8DC;
@@ -145,6 +149,6 @@ body {
 
 .read {
   background-color: #F2F4F4;
-  
+
 
 }
