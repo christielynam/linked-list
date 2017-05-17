@@ -206,8 +206,16 @@ body {
   text-decoration: none;
 }
 
-/*Between 1300 and 1250, media query for font size, 70px*/
-/*Everything above 1300, leave at 75px*/
+@media screen and (min-width: 1400px) {
+  #linked,
+  #list {
+    font-size: 80px;
+  }
+  .icon {
+    height: 110px;
+    width: 110px;
+  }
+}
 
 @media screen and (max-width: 1250px) {
   #linked,
