@@ -10,7 +10,6 @@ $(window).on('click', function() {
 $(window).on('keyup', function(event) {
   if ($('#website-title').val() !== '' && $('#website-url').val() !== '' && event.keyCode === 13) {
     validateURL();
-    clearInput();
     toggleEnterDisable();
   }
 })
