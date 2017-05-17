@@ -1,47 +1,72 @@
-$(window).on('load', function() {
-  $('#website-title').focus();
-})
-
-
-
-
-var $enterBtn = $('.enter-btn');
-var $deleteBtn = $('.delete-btn');
+var input = $('#website-url');
 var totalCounter = 0;
 var readCounter = 0;
 var unreadCounter = 0;
 
+$(window).on('load', function() {
+  $('#website-title').focus();
+})
 
-function countBookmarks(){
-  totalCounter = readCounter + unreadCounter;
-  $('.total-count').text(totalCounter);
-  $('.read-count').text(readCounter);
-  $('.unread-count').text(unreadCounter);
-}
+$(window).on('keyup', function(event) {
+  if ($('#website-title').val() !== '' && $('#website-url').val() !== '' && event.keyCode === 13) {
+    validateURL();
+    clearInput();
+    toggleEnterDisable();
+  }
+})
 
+$('#website-title').on('input', function() {
+  toggleEnterDisable();
+})
 
-$enterBtn.on('click', function() {
-  prependBookmark();
+$('#website-url').on('input', function() {
+  toggleEnterDisable();
+  amendURL();
+})
+
+$('.enter-btn').on('click', function() {
+  validateURL();
   clearInput();
   toggleEnterDisable();
-  unreadCounter++
+})
+
+$('.bookmark-container').on('click', '.read-btn', function() {
+  $('article').toggleClass('read');
+})
+
+$('.bookmark-container').on('click', '.delete-btn', function() {
+  $(this).parents('.bookmark').remove();
+  $('#website-title').focus();
+
+  if(readCounter > 0) {
+    readCounter = readCounter - 1;
+  }
+  unreadCounter = unreadCounter - 1;
   countBookmarks();
-  })
+});
 
-//Constructor function in prepend() if needed
-// function Bookmark(title, url) {
-//   this.title = title;
-//   this.url = url;
-// }
-// var bookmark = new Bookmark($title, $url);
+function amendURL() {
+    if (input.val().substring(0,4)=='www.') {
+      input.val('http://www.'+input.val().substring(4));
+    }
+}
 
+function validateURL() {
+  var input=$('#website-url').val();
+
+  if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(input)) {
+   prependBookmark();
+   unreadCounter++
+   countBookmarks();
+  } else {
+  alert("invalid URL");
+  }
+}
 
 function prependBookmark() {
-
   var $bookmarkLibrary = $('.bookmark-container');
   var $title = $('#website-title').val();
   var $url = $('#website-url').val();
-
   $bookmarkLibrary.prepend(
     `<article class="bookmark">
       <div class="content">
@@ -56,31 +81,16 @@ function prependBookmark() {
   )
 }
 
-$('.bookmark-container').on('click', '.read-btn', function() {
-  $('article').toggleClass('read');
-  console.log('pressing');
-
-
-})
-
 function toggleEnterDisable() {
   var $title = $('#website-title').val();
   var $url = $('#website-url').val();
 
   if (($title.length === 0) || ($url.length === 0)) {
-    $enterBtn.prop('disabled', true);
+    $('.enter-btn').prop('disabled', true);
   } else {
-    $enterBtn.prop('disabled', false);
+    $('.enter-btn').prop('disabled', false);
   }
 }
-
-
-$('#website-title').on('input', function() {
-  toggleEnterDisable();
-})
-$('#website-url').on('input', function() {
-  toggleEnterDisable();
-})
 
 function clearInput() {
   $('#website-title').val('');
@@ -88,13 +98,9 @@ function clearInput() {
   $('#website-title').focus();
 }
 
-$('.bookmark-container').on('click', '.delete-btn', function() {
-  $(this).parents('.bookmark').remove();
-  $('#website-title').focus();
-
-  if(readCounter > 0) {
-    readCounter = readCounter - 1;
-  }
-  unreadCounter = unreadCounter - 1;
-  countBookmarks();
-});
+function countBookmarks(){
+  totalCounter = readCounter + unreadCounter;
+  $('.total-count').text(totalCounter);
+  $('.read-count').text(readCounter);
+  $('.unread-count').text(unreadCounter);
+}

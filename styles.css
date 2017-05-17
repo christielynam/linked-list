@@ -57,6 +57,12 @@ body {
   font-weight: 400;
 }
 
+.required {
+  margin: 0;
+  align-self: flex-start;
+  padding-left: 65px;
+}
+
 .enter-btn {
   width: 80%;
   height: 40px;
@@ -69,6 +75,7 @@ body {
   font-size: 17px;
   font-weight: 800;
   letter-spacing: 1px;
+  outline: none;
 }
 
 .enter-btn:hover {
@@ -78,6 +85,18 @@ body {
 
 .enter-btn:disabled {
   background-color: #CFD8DC;
+}
+
+.count {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.total-count,
+.read-count,
+.unread-count {
+  padding-left: 5px;
 }
 
 .bookmark-container {
