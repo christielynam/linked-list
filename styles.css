@@ -63,7 +63,8 @@ body {
   padding-left: 65px;
 }
 
-.enter-btn {
+.enter-btn,
+.clear-btn {
   width: 80%;
   height: 40px;
   display: block;
@@ -75,15 +76,18 @@ body {
   font-size: 17px;
   font-weight: 800;
   letter-spacing: 1px;
+  text-align: center;
   outline: none;
 }
 
-.enter-btn:hover {
+.enter-btn:hover,
+.clear-btn:hover {
   background-color: #FFD773;
   color: #FFFFFF;
 }
 
-.enter-btn:disabled {
+.enter-btn:disabled,
+.clear-btn:disabled {
   background-color: #CFD8DC;
 }
 
@@ -108,6 +112,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.filler-text {
+  
 }
 
 .bookmark {
