@@ -7,6 +7,14 @@ $(window).on('load', function() {
   $('#website-title').focus();
 })
 
+$(window).on('keyup', function(event) {
+  if ($('#website-title').val() !== '' && $('#website-url').val() !== '' && event.keyCode === 13) {
+    validateURL();
+    clearInput();
+    toggleEnterDisable();
+  }
+})
+
 $('#website-title').on('input', function() {
   toggleEnterDisable();
 })
@@ -24,7 +32,6 @@ $('.enter-btn').on('click', function() {
 
 $('.bookmark-container').on('click', '.read-btn', function() {
   $('article').toggleClass('read');
-  console.log('pressing');
 })
 
 $('.bookmark-container').on('click', '.delete-btn', function() {
