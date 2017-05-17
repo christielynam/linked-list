@@ -23,7 +23,8 @@ $('#website-url').on('input', function() {
   amendURL();
 })
 
-$('.enter-btn').on('click', function() {
+$('.enter-btn').on('click', function(event) {
+  event.preventDefault();
   validateURL();
   toggleEnterDisable();
 })
@@ -36,13 +37,23 @@ $('.bookmark-container').on('click', '.read-btn', function() {
 $('.clear-btn').on('click', function() {
     $('.bookmark.read').remove();
     countBookmarks();
+    displayPlaceholder();
 })
 
 $('.bookmark-container').on('click', '.delete-btn', function() {
   $(this).parents('.bookmark').remove();
   $('#website-title').focus();
   countBookmarks();
+  displayPlaceholder();
 })
+
+function displayPlaceholder() {
+  if ($('.bookmark').length === 0) {
+    $('.filler-container').show();
+  } else {
+    $('.filler-container').hide();
+  }
+}
 
 function amendURL() {
   var input = $('#website-url');
@@ -62,6 +73,7 @@ function validateURL() {
   $('#website-url').val('');
   $('#website-url').focus();
   }
+  displayPlaceholder();
 }
 
 function prependBookmark() {
@@ -84,7 +96,6 @@ function prependBookmark() {
 function toggleEnterDisable() {
   var $title = $('#website-title').val();
   var $url = $('#website-url').val();
-
   if (($title.length === 0) || ($url.length === 0)) {
     $('.enter-btn').prop('disabled', true);
   } else {
