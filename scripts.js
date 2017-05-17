@@ -3,6 +3,19 @@ var input = $('#website-url');
 
 $(window).on('load', function() {
   $('#website-title').focus();
+  if ($('.bookmark.read').length === 0) {
+    $('.clear-btn').prop('disabled', true);
+  } else {
+    $('.clear-btn').prop('disabled', false);
+  }
+})
+
+$(window).on('click', function() {
+  if ($('.bookmark.read').length === 0) {
+    $('.clear-btn').prop('disabled', true);
+  } else {
+    $('.clear-btn').prop('disabled', false);
+  }
 })
 
 $(window).on('keyup', function(event) {
@@ -34,9 +47,8 @@ $('.bookmark-container').on('click', '.read-btn', function() {
 })
 
 $('.clear-btn').on('click', function() {
-  if $('article').hasClass('read') {
-    $(this).siblings('.bookmark').remove();
-  }
+    $('.bookmark.read').remove();
+    countBookmarks();
 })
 
 $('.bookmark-container').on('click', '.delete-btn', function() {
