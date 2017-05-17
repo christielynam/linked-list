@@ -34,11 +34,11 @@ $('.bookmark-container').on('click', '.read-btn', function() {
   $('article').toggleClass('read');
 })
 
-// $('.clear-btn').on('click', function() {
-//   if $('article').hasClass('read') {
-//     $(this).siblings('.bookmark').remove();
-//   }
-// })
+$('.clear-btn').on('click', function() {
+  if $('article').hasClass('read') {
+    $(this).siblings('.bookmark').remove();
+  }
+})
 
 $('.bookmark-container').on('click', '.delete-btn', function() {
   $(this).parents('.bookmark').remove();
