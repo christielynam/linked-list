@@ -1,8 +1,10 @@
-var input = $('#website-url');
-
-
 $(window).on('load', function() {
   $('#website-title').focus();
+  toggleClearDisable();
+})
+
+$(window).on('click', function() {
+  toggleClearDisable();
 })
 
 $(window).on('keyup', function(event) {
@@ -24,7 +26,6 @@ $('#website-url').on('input', function() {
 
 $('.enter-btn').on('click', function() {
   validateURL();
-  clearInput();
   toggleEnterDisable();
 })
 
@@ -33,26 +34,34 @@ $('.bookmark-container').on('click', '.read-btn', function() {
   countBookmarks();
 })
 
+$('.clear-btn').on('click', function() {
+    $('.bookmark.read').remove();
+    countBookmarks();
+})
+
 $('.bookmark-container').on('click', '.delete-btn', function() {
   $(this).parents('.bookmark').remove();
   $('#website-title').focus();
   countBookmarks();
-});
+})
 
 function amendURL() {
-    if (input.val().substring(0,4)=='www.') {
-      input.val('http://www.'+input.val().substring(4));
-    }
+  var input = $('#website-url');
+  if (input.val().substring(0,4) == 'www.') {
+    input.val('http://www.' + input.val().substring(4));
+  }
 }
 
 function validateURL() {
-  var input=$('#website-url').val();
-
+  var input = $('#website-url').val();
   if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(input)) {
    prependBookmark();
    countBookmarks();
+   clearInput();
   } else {
   alert("invalid URL");
+  $('#website-url').val('');
+  $('#website-url').focus();
   }
 }
 
@@ -60,18 +69,17 @@ function prependBookmark() {
   var $bookmarkLibrary = $('.bookmark-container');
   var $title = $('#website-title').val();
   var $url = $('#website-url').val();
-  $bookmarkLibrary.prepend(
-    `<article class="bookmark">
-      <div class="content">
-        <h2 class="title">${$title}</h2>
-        <a class="link" href="${$url}">${$url}</a>
-        <div class="btn-container">
-          <button class="read-btn" type="button" name="read">Read</button>
-          <button class="delete-btn" type="button" name="delete">Delete</button>
-        </div>
+  var $newBookmark = `<article class="bookmark">
+    <div class="content">
+      <h2 class="title">${$title}</h2>
+      <a class="link" href="${$url}">${$url}</a>
+      <div class="btn-container">
+        <button class="read-btn" type="button" name="read">Read</button>
+        <button class="delete-btn" type="button" name="delete">Delete</button>
       </div>
-    </article>`
-  )
+    </div>
+  </article>`;
+  $bookmarkLibrary.prepend($newBookmark);
 }
 
 function toggleEnterDisable() {
@@ -82,6 +90,14 @@ function toggleEnterDisable() {
     $('.enter-btn').prop('disabled', true);
   } else {
     $('.enter-btn').prop('disabled', false);
+  }
+}
+
+function toggleClearDisable() {
+  if ($('.bookmark.read').length === 0) {
+    $('.clear-btn').prop('disabled', true);
+  } else {
+    $('.clear-btn').prop('disabled', false);
   }
 }
 

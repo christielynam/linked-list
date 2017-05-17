@@ -10,7 +10,7 @@
   </head>
   <body>
     <section class="form-container">
-      <div class="header">
+      <div class="header" role="header">
         <h1 id="linked">Linked</h1>
         <img class="icon" src="assets/linked-list-logo (1).svg" alt="linked list logo">
         <h1 id="list">List</h1>
@@ -18,30 +18,21 @@
       <input class="user-input" id="website-title" type="text" name="website title" value="" placeholder="Website Title">
       <input class="user-input" id="website-url" type="url" name="website url" value="" placeholder="Website URL" >
       <input class="enter-btn" type="submit" name="enter" value="Enter" disabled>
-
       <p class="count">Bookmark Total: <span class="total-count">0</span></p>
       <p class="count">Read Bookmarks: <span class="read-count">0</span></p>
       <p class="count">Unread Bookmarks: <span class="unread-count">0</span></p>
-
+      <input class="clear-btn" type="button" name="clear" value="Clear Read Bookmarks">
     </section>
     <section class="bookmark-container">
-      <!-- <article class="bookmark">
-        <div class="content">
-          <h2 class="title">The Website Title</h2>
-          <a class="link" href="#">www.thewebsiteurl.com</a>
-          <div class="btn-container">
-            <button class="read-btn" type="button" name="read">Read</button>
-            <button class="delete-btn" type="button" name="delete">Delete</button>
-          </div>
-        </div>
-      </article> -->
-  </section>
+      <div class="filler-container">
+        <p class="filler-text">Your bookmark library is currently empty</p>
+      </div>
+    </section>
 
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="path/to/your/jquery.min.js"><\/script>')</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="path/to/your/jquery.min.js"><\/script>')</script>
     <script type="text/javascript" src="scripts.js">
-
     </script>
   </body>
 </html>

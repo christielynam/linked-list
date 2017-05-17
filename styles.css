@@ -52,6 +52,7 @@ body {
   height: 40px;
   margin: 25px auto;
   padding-left: 10px;
+  color: #455A64;
   font-family: inherit;
   font-size: 25px;
   font-weight: 400;
@@ -63,7 +64,8 @@ body {
   padding-left: 65px;
 }
 
-.enter-btn {
+.enter-btn,
+.clear-btn {
   width: 80%;
   height: 40px;
   display: block;
@@ -71,43 +73,62 @@ body {
   border: none;
   background-color: #FFC107;
   color: #FFFFFF;
+  cursor: pointer;
   font-family: inherit;
   font-size: 17px;
   font-weight: 800;
   letter-spacing: 1px;
+  text-align: center;
   outline: none;
 }
 
-.enter-btn:hover {
+.enter-btn:hover,
+.clear-btn:hover {
   background-color: #FFD773;
   color: #FFFFFF;
 }
 
-.enter-btn:disabled {
+.enter-btn:disabled,
+.clear-btn:disabled {
   background-color: #CFD8DC;
 }
 
 .count {
+  display: flex;
+  align-self: center;
+  margin-bottom: 10px;
+  color: #CFD8DC;
   font-size: 20px;
   letter-spacing: 1px;
-  margin-bottom: 10px;
 }
 
 .total-count,
 .read-count,
 .unread-count {
+  display: inline-flex;
   padding-left: 5px;
 }
 
 .bookmark-container {
   width: 50%;
-  background-color: #CFD8DC;
-}
-
-.bookmark-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #CFD8DC;
+}
+
+.filler-container {
+  display: flex;
+  height: 100vh;
+}
+
+.filler-text {
+  align-self: center;
+  padding: 10px;
+  color: #455A64;
+  font-size: 75px;
+  opacity: 0.5;
+  text-align: center;
 }
 
 .bookmark {
@@ -126,10 +147,9 @@ body {
 }
 
 .title {
-  margin-top: 10px;
-  padding-bottom: 20px;
+  margin: 0;
+  padding-bottom: 10px;
   color: #455A64;
-  border-bottom: 2px solid #CFD8DC;
   font-size: 35px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -141,7 +161,8 @@ body {
 .link {
   display: block;
   margin-bottom: 20px;
-  padding-bottom: 20px;
+  padding: 20px 0;
+  border-top: 2px solid #CFD8DC;
   border-bottom: 2px solid #CFD8DC;
   color: #607D8B;
   font-size: 22px;
@@ -163,7 +184,6 @@ body {
   text-decoration-color: #CFD8DC;
 }
 
-
 .btn-container {
   display: flex;
   justify-content: space-between;
@@ -171,9 +191,11 @@ body {
 
 .read-btn,
 .delete-btn {
+  padding: 0;
   border: none;
   background: none;
   color: #455A64;
+  cursor: pointer;
   font-size: 18px;
   outline: none;
   text-decoration: underline;
@@ -183,18 +205,8 @@ body {
 .read .read-btn {
   color: #F05A28;
   cursor: pointer;
+  font-weight: bold;
   text-decoration: none;
-}
-
-p {
-  color: #CFD8DC;
-  display: flex;
-  align-self: center;
-}
-
-.read-count,
-.unread-count {
-  display: inline-flex;
 }
 
 @media screen
