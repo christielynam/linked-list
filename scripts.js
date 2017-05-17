@@ -1,7 +1,5 @@
 var input = $('#website-url');
-var totalCounter = 0;
-var readCounter = 0;
-var unreadCounter = 0;
+
 
 $(window).on('load', function() {
   $('#website-title').focus();
@@ -32,16 +30,12 @@ $('.enter-btn').on('click', function() {
 
 $('.bookmark-container').on('click', '.read-btn', function() {
   $('article').toggleClass('read');
+  countBookmarks();
 })
 
 $('.bookmark-container').on('click', '.delete-btn', function() {
   $(this).parents('.bookmark').remove();
   $('#website-title').focus();
-
-  if(readCounter > 0) {
-    readCounter = readCounter - 1;
-  }
-  unreadCounter = unreadCounter - 1;
   countBookmarks();
 });
 
@@ -56,7 +50,6 @@ function validateURL() {
 
   if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(input)) {
    prependBookmark();
-   unreadCounter++
    countBookmarks();
   } else {
   alert("invalid URL");
@@ -98,9 +91,20 @@ function clearInput() {
   $('#website-title').focus();
 }
 
+function countArticles(){
+  return $('article').length;
+}
+
+function totalRead() {
+  return $('.read').length;
+}
+
+function totalUnread() {
+  return $('article').length - $('.read').length;
+}
+
 function countBookmarks(){
-  totalCounter = readCounter + unreadCounter;
-  $('.total-count').text(totalCounter);
-  $('.read-count').text(readCounter);
-  $('.unread-count').text(unreadCounter);
+  $('.total-count').text(countArticles());
+  $('.read-count').text(totalRead());
+  $('.unread-count').text(totalUnread());
 }
