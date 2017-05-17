@@ -29,7 +29,7 @@ $('.enter-btn').on('click', function() {
 })
 
 $('.bookmark-container').on('click', '.read-btn', function() {
-  $('article').toggleClass('read');
+  $(this).parents('.bookmark').toggleClass('read');
   countBookmarks();
 })
 
